@@ -1,0 +1,8 @@
+: First Comment
+access-list foo-bar standard deny all
+: Second Comment
+access-list bang-biz extended permit ip any any
+access-list dne blahtype permit all
+: additional directives
+version 1.0.0
+logging enable
