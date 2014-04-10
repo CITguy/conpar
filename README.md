@@ -23,7 +23,7 @@ Or install it yourself as:
 **MRE 1.9.3, 2.0.0, 2.1.0**
 
 Versions prior to 1.9.3 will **NOT** be supported with this gem.
-Since 1.8.7 and ree are EOL, they no longer desirable to code against.
+Since 1.8.7 and ree are EOL, they no longer desirable to code against. Also, there are some incompatibilities with ruby 1.9.2.
 
 ## Usage
 
