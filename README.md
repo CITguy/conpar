@@ -20,9 +20,9 @@ Or install it yourself as:
 
 ## Supported Rubies
 
-**MRE 1.9.2, 1.9.3, 2.0.0, 2.1.0**
+**MRE 1.9.3, 2.0.0, 2.1.0**
 
-Versions prior to 1.9.2 will **NOT** be supported with this gem.
+Versions prior to 1.9.3 will **NOT** be supported with this gem.
 Since 1.8.7 and ree are EOL, they no longer desirable to code against.
 
 ## Usage
