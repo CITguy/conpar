@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/CITguy/conpar.png?branch=master)](https://travis-ci.org/CITguy/conpar)
 [![Coverage Status](https://coveralls.io/repos/CITguy/conpar/badge.png)](https://coveralls.io/r/CITguy/conpar)
 
-Conpar (short for **Con**figuration **Par**ser) is designed to be a flexible and extendable library for parsing through a Firewall configuration file by tokenizing the configuration directives into ruby objects for evaluation.
+Conpar (short for Configuration Parser) is designed to be a flexible and extendable library for parsing through a Firewall configuration file by tokenizing the configuration directives into ruby objects for evaluation.
 
 **NOTE**: This gem is still in a very _alpha_ state.  It currently only knows how to tokenize Comments and Access Lists for Cisco ASA firewall configurations.
 
