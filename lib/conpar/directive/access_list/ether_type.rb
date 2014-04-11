@@ -29,11 +29,7 @@ module Conpar
           :rule
         ].each do |m|
           define_method(m) do
-            begin
-              @match_data[m]
-            rescue IndexError
-              nil
-            end
+            @match_data[m]
           end
         end
 

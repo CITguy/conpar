@@ -43,11 +43,7 @@ module Conpar
           :protocol
         ].each do |m|
           define_method(m) do
-            begin
-              @match_data[m]
-            rescue IndexError
-              nil
-            end
+            @match_data[m]
           end
         end
       end
