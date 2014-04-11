@@ -1,6 +1,6 @@
 # Conpar 
 [![Build Status](https://travis-ci.org/CITguy/conpar.png?branch=master)](https://travis-ci.org/CITguy/conpar)
-[![Coverage Status](https://coveralls.io/repos/CITguy/conpar/badge.png)](https://coveralls.io/r/CITguy/conpar)
+[![Coverage Status](https://coveralls.io/repos/CITguy/conpar/badge.png?branch=master)](https://coveralls.io/r/CITguy/conpar?branch=master)
 
 Conpar (short for Configuration Parser) is designed to be a flexible and extendable library for parsing through a Firewall configuration file by tokenizing the configuration directives into ruby objects for evaluation.
 
