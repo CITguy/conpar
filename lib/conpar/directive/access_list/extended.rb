@@ -4,7 +4,7 @@ module Conpar
       # Class that maps directly to Cisco extended ACL definition
       # See http://www.cisco.com/c/en/us/td/docs/security/asa/asa91/configuration/general/asa_91_general_config/acl_extended.html
       class Extended < Base
-        SIGNATURE = /^(access-list)\b.*\b(extended)\b/i
+        SIGNATURE = /^(access-list)\b.*\s(extended)\s/i
 
         def initialize(content="", options={})
           super
@@ -20,9 +20,9 @@ module Conpar
           # {deny | permit} protocol_argument source_address_argument dest_address_argument
           # [log [[level] [interval secs] | disable | default]]
           # [inactive | time-range time_range_name]
-          parse_regex = %r/
+          parse_regex = %r/^
             (access-list)\s*                 # Directive Signature
-            (?<name>[\-\w]+)\s*              # ACL Name
+            (?<name>#{NAME})\s*              # ACL Name
             (line\s+(?<line>\d+))?\s*        # (optional) line number
             (?<type>extended)\s*             # ACL type
             (?<permission>(permit|deny))?\s* # permit or deny

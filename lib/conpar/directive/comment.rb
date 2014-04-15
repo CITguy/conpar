@@ -7,6 +7,7 @@ module Conpar
       def initialize(content="", options={})
         super
         @ilk = :comment
+        @sub_ilk = "comment"
       end
     end
   end

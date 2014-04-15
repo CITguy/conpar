@@ -14,6 +14,7 @@ module Conpar
         if line =~ SIGNATURE
           # Deeper ACL Testing - Which type of ACL is it?
           [
+            Remark,
             Standard,
             Extended,
             WebType,

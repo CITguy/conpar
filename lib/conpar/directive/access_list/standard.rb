@@ -4,16 +4,16 @@ module Conpar
       # Class that maps directly to Cisco standard ACL definition
       # See http://www.cisco.com/c/en/us/td/docs/security/asa/asa91/configuration/general/asa_91_general_config/acl_standard.html
       class Standard < Base
-        SIGNATURE = /^(access-list)\b.*\b(standard)\b/i
+        SIGNATURE = /^(access-list)\b.*\s(standard)\s/i
 
         def initialize(content="", options={})
           super
 
           @sub_ilk = "standard"
 
-          parse_regex = %r/
+          parse_regex = %r/^
             (access-list)\s*                 # Directive signature
-            (?<name>[\-\w]+)\s*              # ACL Name
+            (?<name>#{NAME})\s*              # ACL Name
             (?<type>(standard))\s*           # Standard ACL Type
             (?<permission>(permit|deny))?\s* # permit or deny
             (?<rule>.+)                      # Everything else on line

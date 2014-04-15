@@ -5,6 +5,8 @@ module Conpar
       class Base < Conpar::Directive::Base
         SIGNATURE = /^(access-list)\b/
 
+        NAME = /[^\s\t]+/ # any non-line-breaking whitespace
+
         def initialize(content="", options={})
           super
           @ilk = :access_list

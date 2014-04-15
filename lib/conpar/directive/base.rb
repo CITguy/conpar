@@ -42,7 +42,7 @@ module Conpar
       def initialize(content="", options={})
         @line_number = options[:line_number]
         @line_span = options.fetch(:line_span, 1)
-        @content = content
+        @content = content.to_s.strip
         @ilk = :directive
         @sub_ilk = ""
         self

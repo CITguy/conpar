@@ -4,20 +4,20 @@ module Conpar
       # Class that maps directly to Cisco ethertype ACL definition
       # See http://www.cisco.com/c/en/us/td/docs/security/asa/asa91/configuration/general/asa_91_general_config/acl_ethertype.html
       class EtherType < Base
-        SIGNATURE = /^(access-list)\b.*\b(ethertype)\b/i
+        SIGNATURE = /^(access-list)\b.*\s(ethertype)\s/i
 
         def initialize(content="", options={})
           super
 
           @sub_ilk = "ethertype"
 
-          parse_regex = %r/
-            (access-list)\s* # Directive Signature
-            (?<name>[\-\w]+)\s* # ACL Name
-            (?<type>(ethertype))\s* # Ethertype ACL Type
+          parse_regex = %r/^
+            (access-list)\s*                 # Directive Signature
+            (?<name>#{NAME})\s*              # ACL Name
+            (?<type>(ethertype))\s*          # Ethertype ACL Type
             (?<permission>(permit|deny))?\s* # permit or deny
             (?<rule>.+)
-          /x
+          $/x
           @match_data = parse_regex.match(@content)
 
           self
