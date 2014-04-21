@@ -3,11 +3,15 @@ require 'spec_helper'
 describe Conpar::Directive::AccessList::Extended do
   let(:klass) { Conpar::Directive::AccessList::Extended }
 
-  context "extended acl with 'standard' in name of object-group" do
-    subject { "access-list ACL_IN extended permit ip any object-group standard-grp" }
-
-    it "::SIGNATURE should match" do
-      expect(subject).to match(klass::SIGNATURE)
+  [
+    "access-list 101 extended permit icmp any object-group standard-grp",
+    "access-list 101 extended permit icmp any any object-group standard"
+  ].each do |acl|
+    context "for '#{acl}'" do
+      subject { acl }
+      it "::SIGNATURE should MATCH" do
+        expect(subject).to match(klass::SIGNATURE)
+      end
     end
   end
 

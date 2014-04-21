@@ -94,5 +94,20 @@ describe Conpar::Document do
         it { expect(result.select{|r| r.ilk == :directive }).to have(2).items }
       end
     end
+
+    # 4 comments, 3 different known ACLs, 1 unknown ACL, 2 other directives
+    context 'sample5' do
+      let(:config) { File.read("spec/samples/sample6") }
+
+      context "result" do
+        let(:result) { subject.parse(config) }
+        it { expect(result.select{|r| r.ilk == :comment }).to have(4).items }
+        it { expect(result.select{|r| r.ilk == :access_list }).to have(4).items }
+        it { expect(result.select{|r| r.sub_ilk == "standard" }).to have(1).items }
+        it { expect(result.select{|r| r.sub_ilk == "extended" }).to have(2).items }
+        it { expect(result.select{|r| r.sub_ilk == "unknown" }).to have(1).items }
+        it { expect(result.select{|r| r.ilk == :directive }).to have(2).items }
+      end
+    end
   end
 end

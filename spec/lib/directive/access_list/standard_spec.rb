@@ -3,13 +3,18 @@ require 'spec_helper'
 describe Conpar::Directive::AccessList::Standard do
   let(:klass) { Conpar::Directive::AccessList::Standard }
 
-  context "extended acl with 'standard' in name of object-group" do
-    subject { "access-list ACL_IN extended permit ip any object-group standard-grp" }
-
-    it "::SIGNATURE should not match" do
-      expect(subject).not_to match(klass::SIGNATURE)
+  [
+    "access-list 101 extended permit icmp any any object-group standard-grp",
+    "access-list 101 extended permit icmp any any object-group standard"
+  ].each do |acl|
+    context "for '#{acl}'" do
+      subject { acl }
+      it "::SIGNATURE should NOT match" do
+        expect(klass::SIGNATURE.match(subject)).to be_nil
+      end
     end
   end
+
   {
     "access-list OSPF standard permit 192.168.1.0 255.255.255.0" => {
       name: "OSPF",

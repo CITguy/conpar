@@ -1,0 +1,10 @@
+: First Comment
+access-list foo-bar standard deny all
+: Second Comment
+access-list bang-biz extended permit ip any any
+access-list dne blahtype permit all
+: additional directives
+version 1.0.0
+logging enable
+: tricky acl (contains both "extended" and "standard" but is Extended)
+access-list 101 extended permit ip any any object-group standard

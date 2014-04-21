@@ -4,7 +4,8 @@ module Conpar
       # Class that maps directly to Cisco webtype ACL definition
       # See http://www.cisco.com/c/en/us/td/docs/security/asa/asa91/configuration/general/asa_91_general_config/acl_webtype.html
       class WebType < Base
-        SIGNATURE = /^(access-list)\b.*\s(webtype)\s/i
+        # (0.1.4) "webtype" should be followed by "permit" or "deny"
+        SIGNATURE = /^(access-list)\b.*\s(webtype)\s+(permit|deny)/i
 
         def initialize(content="", options={})
           super
