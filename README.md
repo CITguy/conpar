@@ -2,6 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/conpar.svg)](http://badge.fury.io/rb/conpar)
 [![Build Status](https://travis-ci.org/CITguy/conpar.png?branch=master)](https://travis-ci.org/CITguy/conpar)
 [![Coverage Status](https://coveralls.io/repos/CITguy/conpar/badge.png?branch=master)](https://coveralls.io/r/CITguy/conpar?branch=master)
+[![Dependency Status](https://gemnasium.com/CITguy/conpar.svg)](https://gemnasium.com/CITguy/conpar)
 
 Conpar (short for Configuration Parser) is designed to be a flexible and extendable library for parsing through a Firewall configuration file by tokenizing the configuration directives into ruby objects for evaluation.
 
