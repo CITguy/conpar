@@ -13,7 +13,7 @@ module Conpar
       lines = fw_config.split("\n")
 
       lines.each_with_index do |line, i|
-        human_line = i+1
+        human_line = "#{i+1}".encode(line.encoding)
         parsed << Conpar.config.parser.new( line, line_number:human_line )
       end
 

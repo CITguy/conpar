@@ -37,6 +37,12 @@ The returned array will have parsed every line in the configuration string into 
 ## Configuration
 **NOTE:** While configuration _is_ functional, it is **not** advised to do any configuration for the current version of this gem.
 
+## CHANGELOG
+### 0.2.0
+* Minor version bumped due to potentially breaking change in functionality.
+* Changes
+	* Directive line_number now returns a string that is in the same encoding as the line it refers.
+
 ## Contributing
 
 1. Fork it

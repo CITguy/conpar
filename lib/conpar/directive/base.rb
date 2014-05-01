@@ -5,8 +5,9 @@ module Conpar
       SIGNATURE = /^(.*)$/ # Matches any non-empty string
 
       # @!attribute [rw] line_number
-      # @return [Integer]
+      # @return [String]
       #   1-based line number within the configuration
+      #   String returned is in same encoding as the line it refers
       attr_accessor :line_number
 
       # @!attribute [rw] line_span

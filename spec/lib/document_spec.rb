@@ -46,10 +46,22 @@ describe Conpar::Document do
           end
           it { expect(acls).to have(1).item }
           it "first acl should be on line #3" do
-            expect(acls.first.line_number).to eq(3)
+            expect(acls.first.line_number).to eq("3")
           end
         end
         # f
+      end
+
+      context "as UTF-8 encoding" do
+        let(:content) { config.encode("UTF-8") }
+        context "result" do
+          let(:result) { subject.parse(content) }
+          it "line_number encodings should all be same as content encoding" do
+            encodings = result.collect{|r| r.line_number.to_s.encoding }
+            encodings &= encodings
+            expect(encodings).to eq([content.encoding])
+          end
+        end
       end
     end
 
