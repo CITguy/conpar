@@ -1,4 +1,4 @@
-# Conpar 
+# Conpar
 [![Gem Version](https://badge.fury.io/rb/conpar.svg)](http://badge.fury.io/rb/conpar)
 [![Build Status](https://travis-ci.org/CITguy/conpar.png?branch=master)](https://travis-ci.org/CITguy/conpar)
 [![Coverage Status](https://coveralls.io/repos/CITguy/conpar/badge.png?branch=master)](https://coveralls.io/r/CITguy/conpar?branch=master)
@@ -51,3 +51,4 @@ The returned array will have parsed every line in the configuration string into 
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
