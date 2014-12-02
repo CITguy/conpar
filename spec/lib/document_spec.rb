@@ -121,5 +121,25 @@ describe Conpar::Document do
         it { expect(result.select{|r| r.ilk == :directive }).to have(2).items }
       end
     end
+
+    context "~legacy syntax~" do
+      # 2 comments and 1 ACL
+      context 'legacy-sample1' do
+        let(:config) { File.read("spec/samples/legacy-sample1") }
+
+        context "result" do
+          let(:result) { subject.parse(config) }
+          it { expect(result.select{|r| r.ilk == :comment }).to have(2).items }
+          it { expect(result.select{|r| r.ilk == :access_list }).to have(1).items }
+          it { expect(result.select{|r| r.sub_ilk == "extended" }).to have(1).items }
+        end
+      end#legacy-sample1
+    end
+
+
+    context "with invalid UTF-8 characters" do
+      let(:config) { ": some comment\255" }
+      it "shouldn't error"
+    end
   end
 end

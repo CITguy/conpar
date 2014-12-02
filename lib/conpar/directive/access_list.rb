@@ -16,9 +16,9 @@ module Conpar
           [
             Remark,
             Standard,
-            Extended,
             WebType,
-            EtherType
+            EtherType,
+            Extended
           ].each do |klass|
             if line =~ klass::SIGNATURE
               return klass.new(line, options)

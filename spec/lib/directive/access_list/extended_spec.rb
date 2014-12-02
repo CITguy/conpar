@@ -5,12 +5,24 @@ describe Conpar::Directive::AccessList::Extended do
 
   [
     "access-list 101 extended permit icmp any object-group standard-grp",
-    "access-list 101 extended permit icmp any any object-group standard"
+    "access-list 101 extended permit icmp any any object-group standard",
+    "access-list 101 permit ip any any" # Legacy Syntax
   ].each do |acl|
     context "for '#{acl}'" do
       subject { acl }
       it "::SIGNATURE should MATCH" do
         expect(subject).to match(klass::SIGNATURE)
+      end
+    end
+  end
+
+  [
+    "access-list dne blahtype permit all"
+  ].each do |acl|
+    context "for '#{acl}'" do
+      subject { acl }
+      it "::SIGNATURE should NOT MATCH" do
+        expect(subject).to_not match(klass::SIGNATURE)
       end
     end
   end
