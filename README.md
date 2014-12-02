@@ -6,7 +6,7 @@
 
 Conpar (short for Configuration Parser) is designed to be a flexible and extendable library for parsing through a Firewall configuration file by tokenizing the configuration directives into ruby objects for evaluation.
 
-**NOTE**: This gem is still in a very _alpha_ state.  It currently only knows how to tokenize Comments and Access Lists for Cisco ASA firewall configurations.
+**NOTE**: This gem is still in a very _alpha_ state.  It currently only knows how to tokenize Comments and Access Lists for Cisco ASA and Cisco PIX firewall configurations.
 
 ## Installation
 
@@ -27,7 +27,7 @@ Or install it yourself as:
 **MRE 1.9.3, 2.0.0, 2.1.0**
 
 Versions prior to 1.9.3 will **NOT** be supported with this gem.
-Since 1.8.7 and ree are EOL, they no longer desirable to code against. Also, there are some incompatibilities with ruby 1.9.2.
+Since 1.8.7 and ree are EOL, they no longer desirable to code against. Ruby 1.9.2 will not be used due to some incompatibilities.
 
 ## Usage
 
@@ -39,6 +39,11 @@ The returned array will have parsed every line in the configuration string into 
 **NOTE:** While configuration _is_ functional, it is **not** advised to do any configuration for the current version of this gem.
 
 ## CHANGELOG
+### 0.2.2/0.2.3
+* Updated to add legacy `access-list` syntax support (0.2.2)
+  * This includes version 6.3 and earlier of the ASA/PIX devices.
+* Updated specs for RSpec 3.x compatibility (0.2.3)
+
 ### 0.2.0
 * Minor version bumped due to potentially breaking change in functionality.
 * Changes
