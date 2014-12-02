@@ -39,12 +39,12 @@ describe Conpar::Document do
 
       context "result" do
         let(:result) { subject.parse(config) }
-        it { expect(result.select{|r| r.ilk == :comment }).to have(2).items }
+        it { expect(result.select{|r| r.ilk == :comment }.size).to eq(2) }
         context "ACLs" do
           let(:acls) do
             result.select{|r| r.ilk == :access_list }
           end
-          it { expect(acls).to have(1).item }
+          it { expect(acls.size).to eq(1) }
           it "first acl should be on line #3" do
             expect(acls.first.line_number).to eq("3")
           end
@@ -71,10 +71,10 @@ describe Conpar::Document do
 
       context "result" do
         let(:result) { subject.parse(config) }
-        it { expect(result.select{|r| r.ilk == :comment }).to have(2).items }
-        it { expect(result.select{|r| r.ilk == :access_list }).to have(2).items }
-        it { expect(result.select{|r| r.sub_ilk == "standard" }).to have(1).items }
-        it { expect(result.select{|r| r.sub_ilk == "extended" }).to have(1).items }
+        it { expect(result.select{|r| r.ilk == :comment }.size).to eq(2) }
+        it { expect(result.select{|r| r.ilk == :access_list }.size).to eq(2) }
+        it { expect(result.select{|r| r.sub_ilk == "standard" }.size).to eq(1) }
+        it { expect(result.select{|r| r.sub_ilk == "extended" }.size).to eq(1) }
       end
     end
 
@@ -84,11 +84,11 @@ describe Conpar::Document do
 
       context "result" do
         let(:result) { subject.parse(config) }
-        it { expect(result.select{|r| r.ilk == :comment }).to have(2).items }
-        it { expect(result.select{|r| r.ilk == :access_list }).to have(3).items }
-        it { expect(result.select{|r| r.sub_ilk == "standard" }).to have(1).items }
-        it { expect(result.select{|r| r.sub_ilk == "extended" }).to have(1).items }
-        it { expect(result.select{|r| r.sub_ilk == "unknown" }).to have(1).items }
+        it { expect(result.select{|r| r.ilk == :comment }.size).to eq(2) }
+        it { expect(result.select{|r| r.ilk == :access_list }.size).to eq(3) }
+        it { expect(result.select{|r| r.sub_ilk == "standard" }.size).to eq(1) }
+        it { expect(result.select{|r| r.sub_ilk == "extended" }.size).to eq(1) }
+        it { expect(result.select{|r| r.sub_ilk == "unknown" }.size).to eq(1) }
       end
     end
 
@@ -98,12 +98,12 @@ describe Conpar::Document do
 
       context "result" do
         let(:result) { subject.parse(config) }
-        it { expect(result.select{|r| r.ilk == :comment }).to have(3).items }
-        it { expect(result.select{|r| r.ilk == :access_list }).to have(3).items }
-        it { expect(result.select{|r| r.sub_ilk == "standard" }).to have(1).items }
-        it { expect(result.select{|r| r.sub_ilk == "extended" }).to have(1).items }
-        it { expect(result.select{|r| r.sub_ilk == "unknown" }).to have(1).items }
-        it { expect(result.select{|r| r.ilk == :directive }).to have(2).items }
+        it { expect(result.select{|r| r.ilk == :comment }.size).to eq(3) }
+        it { expect(result.select{|r| r.ilk == :access_list }.size).to eq(3) }
+        it { expect(result.select{|r| r.sub_ilk == "standard" }.size).to eq(1) }
+        it { expect(result.select{|r| r.sub_ilk == "extended" }.size).to eq(1) }
+        it { expect(result.select{|r| r.sub_ilk == "unknown" }.size).to eq(1) }
+        it { expect(result.select{|r| r.ilk == :directive }.size).to eq(2) }
       end
     end
 
@@ -113,12 +113,12 @@ describe Conpar::Document do
 
       context "result" do
         let(:result) { subject.parse(config) }
-        it { expect(result.select{|r| r.ilk == :comment }).to have(4).items }
-        it { expect(result.select{|r| r.ilk == :access_list }).to have(4).items }
-        it { expect(result.select{|r| r.sub_ilk == "standard" }).to have(1).items }
-        it { expect(result.select{|r| r.sub_ilk == "extended" }).to have(2).items }
-        it { expect(result.select{|r| r.sub_ilk == "unknown" }).to have(1).items }
-        it { expect(result.select{|r| r.ilk == :directive }).to have(2).items }
+        it { expect(result.select{|r| r.ilk == :comment }.size).to eq(4) }
+        it { expect(result.select{|r| r.ilk == :access_list }.size).to eq(4) }
+        it { expect(result.select{|r| r.sub_ilk == "standard" }.size).to eq(1) }
+        it { expect(result.select{|r| r.sub_ilk == "extended" }.size).to eq(2) }
+        it { expect(result.select{|r| r.sub_ilk == "unknown" }.size).to eq(1) }
+        it { expect(result.select{|r| r.ilk == :directive }.size).to eq(2) }
       end
     end
 
@@ -129,9 +129,9 @@ describe Conpar::Document do
 
         context "result" do
           let(:result) { subject.parse(config) }
-          it { expect(result.select{|r| r.ilk == :comment }).to have(2).items }
-          it { expect(result.select{|r| r.ilk == :access_list }).to have(1).items }
-          it { expect(result.select{|r| r.sub_ilk == "extended" }).to have(1).items }
+          it { expect(result.select{|r| r.ilk == :comment }.size).to eq(2) }
+          it { expect(result.select{|r| r.ilk == :access_list }.size).to eq(1) }
+          it { expect(result.select{|r| r.sub_ilk == "extended" }.size).to eq(1) }
         end
       end#legacy-sample1
     end
